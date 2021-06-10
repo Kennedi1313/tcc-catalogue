@@ -1,0 +1,48 @@
+:host ::ng-deep
+.p-tabview .p-tabview-nav li {
+  width: 50%;
+}
+
+.action {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 2rem;
+  height: 8rem;
+  padding: 1rem;
+}
+
+.action .add-button{
+  width: 20rem;
+  height: 2.7rem;
+}
+
+:host ::ng-deep
+.p-toast-message-custom {
+    background-color: #E1CFE7;
+    border: solid #8A427A;
+    border-width: 0 0 0 6px;
+    color: #2c1e30;
+}
+
+:host ::ng-deep
+.p-toast-message-custom .p-toast-icon-close {
+  color: #2c1e30;
+}
+
+@media screen and (max-width: 800px) {
+  .action{
+    flex-direction: column;
+  }
+
+  .action .add-button{
+    width: 100%;
+  }
+  :host ::ng-deep
+  .p-toast {
+    width: 90%;
+  }
+}
+

@@ -1,0 +1,15 @@
+<div class="form">
+  <div class="p-float-label">
+    <input id="float-input" [(ngModel)]="loja && loja.name" type="text" pInputText>
+    <label for="float-input">Nome</label>
+  </div>
+  <div class="p-float-label">
+    <input id="float-input" [(ngModel)]="loja && loja.whatsapp" type="number" pInputText>
+    <label for="float-input">Whatsapp</label>
+  </div>
+  <div class="p-float-label">
+    <textarea inputId="textarea" [(ngModel)]="loja && loja.bio" rows="3" style="resize: none;" cols="30" pInputTextarea></textarea>
+    <label for="textarea">Bio</label>
+  </div>
+  <button pButton pRipple label="Salvar" (click)="salvar()" class="p-button-success" style="width: 100%;"></button>
+</div>

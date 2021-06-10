@@ -1,0 +1,126 @@
+:host ::ng-deep .p-toolbar {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 0 4px 1px lightgray;
+  border-radius: 0;
+}
+
+:host ::ng-deep .p-panel-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10rem;
+  padding: 0;
+  background-color: var(--indigo-50);
+  margin-top: 3rem;
+}
+
+.page1 {
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  overflow: hidden;
+  justify-content: space-evenly;
+}
+
+.page1-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+}
+
+.page1-text button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.page2, .page3 {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.page2 span, .page3 span {
+  color: green;
+}
+
+.page2 ul, .page3 ul {
+  padding: 0.5rem;
+}
+
+.page2 p-card, .page3 p-card {
+  height: 100%;
+}
+
+:host ::ng-deep .p-card-body {
+  height: 50vh;
+}
+
+.page4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.page4 button {
+  width: 20rem;
+  height: 4rem;
+}
+
+footer {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--blue-800);
+  color: white;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  :host ::ng-deep
+    .p-panel-content {
+      row-gap: 5rem;
+  }
+
+  .page1 {
+    height: unset;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    row-gap: 5rem;
+    padding: 1rem;
+  }
+
+  .page1-text {
+    width: 100%;
+  }
+
+  .page2, .page3 {
+    flex-direction: column;
+    height: unset;
+    row-gap: 1rem;
+  }
+
+  :host ::ng-deep
+  .page3 .p-card-body {
+    height: unset;
+  }
+
+  .page4 {
+    padding: 1rem;
+  }
+}

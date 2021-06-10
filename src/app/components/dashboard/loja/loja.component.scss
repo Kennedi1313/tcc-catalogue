@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+:host ::ng-deep {
+  .form .p-float-label, .form .p-float-label .p-inputtext {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .form {
+    width: 100%;
+  }
+}
+

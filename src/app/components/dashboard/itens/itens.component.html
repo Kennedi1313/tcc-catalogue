@@ -1,0 +1,58 @@
+<p-confirmDialog [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<div class="content">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="8" [pageLinks]="3" filterBy="name,category"
+      [sortField]="sortField" [sortOrder]="sortOrder" layout="list">
+      <ng-template pTemplate="header">
+          <div class="header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+              <p-dropdown [options]="sortOptions" placeholder="Ordenar por preço" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+              <p-dropdown [options]="categories" placeholder="Categorias" [showClear]="true" (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0 "></p-dropdown>
+              <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                  <i class="pi pi-search"></i>
+                  <input type="search" pInputText placeholder="Buscar pelo nome" (input)="search($event)">
+              </span>
+          </div>
+      </ng-template>
+      <ng-template let-product pTemplate="listItem">
+          <div class="p-col-12">
+              <div class="product-list-item">
+                  <div class="product-list-header">
+                    <button pButton pRipple (click)="delete(product.id)" type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-sm close"></button>
+                    <img [src]="product.avatar ? product.avatar : '../../../assets/default.png'" alt="avatar">
+                    <div class="product-list-detail">
+                      <div class="product-name" style="font-weight: bold;">{{product.name}}</div>
+                      <div class="action">
+                        <div class="ativar">
+                          <h5 *ngIf="product.ativo">Em estoque</h5>
+                          <h5 *ngIf="!product.ativo">Esgotado</h5>
+                          <p-inputSwitch (onChange)="changeAtivoItem(product)" [(ngModel)]="product.ativo"></p-inputSwitch>
+                        </div>
+                        <p-button icon="pi pi-pencil"
+                          (click)="
+                            modal.name = product.name;
+                            modal.info = product.info ? product.info : '';
+                            modal.price = product.price;
+                            modal.category = {
+                              name: product.category,
+                              code: product.category
+                            };
+                            modal.buscarImages(product.id);
+                            modal.itemId = product.id;
+                            modal.displayModal = true;
+                            modal.buscarCategorias();
+                          "
+                          label="Editar"></p-button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-list-bottom">
+                    <div class="product-list-action">
+                      <span class="product-price">{{product.price | currency:'BRL':true:'1.2-2'}}</span>
+                      <div *ngIf="product.category" class="product-category"><i class="pi pi-tag product-category-icon"></i>{{product.category}}</div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-dataView>
+
+  <app-editar-produto #modal></app-editar-produto>

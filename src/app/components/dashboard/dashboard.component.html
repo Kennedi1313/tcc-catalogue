@@ -1,0 +1,28 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+      <button pButton aria-label="home" class="p-button-text" label="Catalogue.me" ></button>
+  </div>
+
+  <div class="p-toolbar-group-right">
+      <button pButton aria-label="sair" (click)="deslogar()" class="p-button-text p-button-danger" label="Sair"></button>
+  </div>
+
+  <div class="p-toolbar-group-left action">
+      <div class="p-inputgroup">
+          <input type="text" pInputText readonly #link [value]="'localhost:4200/' + tag">
+          <button pButton pRipple (click)="copyToClipboard(link)" icon="pi pi-copy" label="Copiar"></button>
+      </div>
+  </div>
+</p-toolbar>
+<p-toast key="main" position="bottom-right"></p-toast>
+<p-tabView>
+  <p-tabPanel leftIcon="pi pi-tags" header="Meus produtos">
+    <button pButton pRipple aria-label="adicionar produto" (click)="modal.displayModal = true; modal.buscarCategorias()" class="p-button-text add-button" label="Adicionar produto" icon="pi pi-plus"></button>
+    <app-itens></app-itens>
+  </p-tabPanel>
+  <p-tabPanel leftIcon="pi pi-home" header="Minha loja">
+    <app-loja></app-loja>
+  </p-tabPanel>
+</p-tabView>
+
+<app-adicionar-produto #modal></app-adicionar-produto>

@@ -1,0 +1,14 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+      <button pButton pRipple aria-label="home" routerLink="/" class="p-button-text" label="Catalogue.me" ></button>
+  </div>
+
+  <!-- <div class="p-toolbar-group-right">
+    <button pButton pRipple class="p-button-rounded p-button-secondary" icon="pi pi-heart" ></button>
+    <button pButton pRipple class="p-button-rounded" icon="pi pi-shopping-cart"></button>
+  </div> -->
+</p-toolbar>
+<div class="loja-header" >
+  <h3>{{ loja && loja.name }}</h3>
+  <p>{{ loja && loja.bio && loja.bio }}</p>
+</div>

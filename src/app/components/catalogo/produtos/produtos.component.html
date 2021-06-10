@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="content">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="8" [pageLinks]="3" filterBy="name,category"
+      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+      <ng-template pTemplate="header">
+          <div class="header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+              <p-dropdown [options]="sortOptions" placeholder="Ordenar por preço" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+              <p-dropdown [options]="categories" placeholder="Categorias" [showClear]="true" (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0 "></p-dropdown>
+              <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                  <i class="pi pi-search"></i>
+                  <input type="search" pInputText placeholder="Buscar pelo nome" (input)="search($event)">
+              </span>
+          </div>
+      </ng-template>
+      <ng-template let-product pTemplate="gridItem">
+        <div class="p-col-6 p-md-3">
+          <div class="product-grid-item p-card">
+            <a [routerLink]="['/',tag, product.id]" style="text-decoration: none; color: black;">
+              <div class="product-grid-header">
+                <p-badge
+                  [severity]="product.ativo ? 'info' : 'danger'"
+                  [value]="product.ativo ? 'EM ESTOQUE' : 'ESGOTADO'">
+                </p-badge>
+              </div>
+              <img [src]="product.avatar ? product.avatar : '../../../assets/default.png'" alt="avatar">
+              <div class="product-grid-item-content">
+                  <div class="product-name">{{product.name}}</div>
+                  <span class="product-price">{{product.price | currency:'BRL':true:'1.2-2'}}</span>
+                  <div *ngIf="product.category" class="product-category"><i class="pi pi-tag product-category-icon"></i>{{product.category}}</div>
+              </div>
+            </a>
+              <!-- <div class="product-grid-footer">
+                <button *ngIf="product.ativo" pButton pRipple class="p-button-secondary" icon="pi pi-heart"></button>
+                <button *ngIf="!product.ativo" pButton pRipple class="p-button-secondary p-button-outlined" icon="pi pi-heart"></button>
+                <button pButton pRipple class="p-button-primary" icon="pi pi-shopping-cart"></button>
+              </div> -->
+          </div>
+        </div>
+      </ng-template>
+  </p-dataView>

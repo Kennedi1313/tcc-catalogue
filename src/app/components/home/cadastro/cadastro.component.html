@@ -1,0 +1,44 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+      <button pButton pRipple aria-label="home" routerLink="/" class="p-button-text" label="Catalogue.me" ></button>
+  </div>
+
+  <!-- <div class="p-toolbar-group-right">
+    <button pButton pRipple class="p-button-rounded p-button-secondary" class="pi pi-heart" ></button>
+    <button pButton pRipple class="p-button-rounded" class="pi pi-shopping-cart"></button>
+  </div> -->
+  <div class="p-toolbar-group-right">
+    <button pButton pRipple class="p-button-text" [routerLink]="['/login']" style="margin-right: 1rem;" label="Entrar"></button>
+    <button pButton pRipple class="p-button-primary" routerLink="/cadastro" label="Cadastre-se"></button>
+  </div>
+</p-toolbar>
+<div class="form p-card">
+  <h3>Cadastrar sua loja</h3>
+
+  <span class="p-float-label">
+    <input id="float-input" type="text" pInputText (keyup)="formatar()" [(ngModel)]="login"/>
+    <label for="float-input">Nome da loja</label>
+  </span>
+  <span class="span" *ngIf="login !== ''">Seu usuário: {{loginstr}} </span>
+  <span class="span" *ngIf="login !== ''">**Você poderá entrar na sua loja com esse usuário</span>
+  <div class="p-float-label">
+    <textarea inputId="textarea" [(ngModel)]="loja && loja.bio" rows="3" style="resize: none;" cols="30" pInputTextarea></textarea>
+    <label for="textarea">Bio</label>
+  </div>
+
+  <span class="p-float-label">
+    <input id="float-input" type="number" pInputText [(ngModel)]="wpp"/>
+    <label for="float-input">Whatsapp</label>
+  </span>
+
+  <span class="p-float-label">
+    <p-password [(ngModel)]="pass" [toggleMask]="true" weakLabel="Fraca" mediumLabel="Mediana" strongLabel="Forte" promptLabel="Digite uma senha"></p-password>
+    <label for="float-input">Senha</label>
+  </span>
+
+  <span class="p-float-label">
+    <p-password [(ngModel)]="pass" [feedback]="false"></p-password>
+    <label for="float-input">Confirmar senha</label>
+  </span>
+  <button pButton pRipple label="Entrar" class="p-button-success"></button>
+</div>

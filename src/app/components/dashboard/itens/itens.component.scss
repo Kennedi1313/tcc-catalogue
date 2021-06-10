@@ -1,0 +1,218 @@
+:host ::ng-deep {
+
+  .p-paginator {
+    padding: 0;
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .p-dataview-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .header .p-dropdown, .header span input {
+    width: 100%;
+  }
+
+  .p-dropdown {
+      width: 14rem;
+      font-weight: normal;
+  }
+
+  .product-name {
+      font-size: 1rem;
+      font-weight: 400;
+  }
+
+  .product-description {
+      margin: 0 0 1rem 0;
+  }
+
+  .product-category-icon {
+      vertical-align: middle;
+      margin-right: .5rem;
+  }
+
+  .product-category {
+      font-weight: 400;
+      font-size: 1rem;
+      vertical-align: middle;
+      color: grey;
+      align-self: flex-end;
+  }
+
+  .product-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      width: 100%;
+
+      img {
+          width: 150px;
+          margin-right: 1rem;
+      }
+
+      .product-list-header {
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+        column-gap: 1rem;
+      }
+
+      .product-list-detail {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .product-list-bottom .badge {
+          display: flex;
+          justify-content: flex-end;
+      }
+
+      .product-price {
+          font-size: 1.4rem;
+          color: green;
+          font-weight: 600;
+          align-self: flex-end;
+      }
+
+      .product-list-action {
+          display: flex;
+          flex-direction: column;
+      }
+
+      .p-button {
+          width: 100%;
+      }
+
+      .product-list-bottom  {
+        width: 30%;
+      }
+
+      .product-list-bottom .product-list-action{
+        display: flex;
+        flex-direction: column;
+        height: 9rem;
+        width: 100%;
+        align-content: flex-end;
+        justify-content: space-between;
+      }
+
+      .ativar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 1rem;
+      }
+
+      .action {
+        width: 50%;
+      }
+  }
+}
+
+.card {
+  padding: 2rem;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.product-list-item .p-button {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+}
+
+@media screen and (max-width: 876px) {
+.product-list-item .p-button {
+  right: 0.6rem;
+}
+:host ::ng-deep .product-list-item {
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    margin: 0;
+  }
+
+  .product-list-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    column-gap: 1rem;
+  }
+
+  .product-list-detail {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    align-self: center;
+  }
+
+  .product-list-action {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: unset !important;
+    padding-top: 1rem;
+  }
+
+  .product-category {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 1.5rem;
+    overflow: hidden;
+    height: 1.5rem;
+    max-width: 150px;
+    text-overflow: ellipsis;
+    color: grey;
+  }
+  .product-list-bottom {
+    width: 100%;
+    height: unset;
+  }
+
+  .action {
+    width: 100%;
+  }
+}
+  .card {
+    padding: 0;
+  }
+  .product-grid-item-top {
+    flex-direction: column;
+  }
+  :host ::ng-deep {
+    .p-dataview-content {
+      width: 100%;
+    }
+
+    .header .p-dropdown, .header span input {
+      width: 100% !important;
+    }
+
+    p-dataviewlayoutoptions {
+      width: unset !important;
+      align-self: flex-end;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.p-float-label {
+  margin-top: 1rem;
+}
+
+:host ::ng-deep
+.p-dialog {
+  width: 50%;
+}
+
+:host ::ng-deep
+.p-inputtext, .p-inputtext {
+  width: 100%;
+}
+
+:host ::ng-deep
+.p-autocomplete {
+  width: 100%;
+}
+
+p-autocomplete {
+  width: 100%;
+}
+
+p-galleriathumbnails {
+  width: 20rem;
+}
+
+.img-item {
+  width: 8rem;
+  height: 8rem;
+}
+
+:host ::ng-deep
+.p-galleria-thumbnail-container {
+  width: 20rem;
+  padding: 0;
+}
+
+:host ::ng-deep .p-galleria-thumbnail-next, :host ::ng-deep .p-galleria-thumbnail-prev {
+  margin: 0 !important;
+}
+
+/* :host ::ng-deep .p-inputgroup input:last-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+} */
+
+:host ::ng-deep
+.p-galleria-thumbnail-item-content {
+  width: 8rem;
+}
+@media screen and (max-width: 876px) {
+  :host ::ng-deep
+  .p-dialog {
+    width: 90%;
+  }
+}
