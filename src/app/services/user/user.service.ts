@@ -6,10 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
+  url_producao: string = 'https://catalogueme.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   login(user, pass): any {
-    return this.http.post<any>('http://localhost:3333/login',
+    return this.http.post<any>(this.url_producao + '/login',
       {
         user_email: user,
         user_passwd: pass,

@@ -10,10 +10,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ProdutoService {
   public itemCreated: BehaviorSubject<string> = new BehaviorSubject(null);
 
+  url_producao: string = 'https://catalogueme.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   getProducts(shopId): any {
-    return this.http.get<any>('http://localhost:3333/items', {
+    return this.http.get<any>(this.url_producao + '/items', {
       params: {
         shop_id: shopId,
         page: '1',
@@ -25,7 +27,7 @@ export class ProdutoService {
   }
 
   getProductById(itemId: any): any {
-    return this.http.get<any>('http://localhost:3333/itembyid', {
+    return this.http.get<any>(this.url_producao + '/itembyid', {
       params: {
         item_id: itemId,
       }})
@@ -35,7 +37,7 @@ export class ProdutoService {
   }
 
   getItemAvatarById(itemId: any): any {
-    return this.http.get<any>('http://localhost:3333/itemavatarbyid', {
+    return this.http.get<any>(this.url_producao + '/itemavatarbyid', {
       params: {
         item_id: itemId,
       }})
@@ -45,13 +47,13 @@ export class ProdutoService {
   }
 
   createProduto(formData: FormData): any {
-    return this.http.post<any>('http://localhost:3333/items', formData)
+    return this.http.post<any>(this.url_producao + '/items', formData)
     .toPromise()
     .then(res => res);
   }
 
   updateProduto(params: any): any {
-    return this.http.post<any>('http://localhost:3333/items-edit', { params })
+    return this.http.post<any>(this.url_producao + '/items-edit', { params })
     .toPromise()
     .then(res => res);
   }
@@ -65,7 +67,7 @@ export class ProdutoService {
   }
 
   deleteProduto(itemId, avatar): any {
-    return this.http.post<any>('http://localhost:3333/itemsDelete',
+    return this.http.post<any>(this.url_producao + '/itemsDelete',
     {
       item_id: itemId,
       avatars: avatar
@@ -75,7 +77,7 @@ export class ProdutoService {
   }
 
   changeAtivo(item: any): any {
-    return this.http.post<any>('http://localhost:3333/itemsInative',
+    return this.http.post<any>(this.url_producao + '/itemsInative',
     {
       item: item
     })
@@ -84,13 +86,13 @@ export class ProdutoService {
   }
 
   addAvatar(formData: FormData): any {
-    return this.http.post<any>('http://localhost:3333/avatar', formData)
+    return this.http.post<any>(this.url_producao + '/avatar', formData)
     .toPromise()
     .then(res => res);
   }
 
   excluirAvatar(avatar: any): any {
-    return this.http.post<any>('http://localhost:3333/avatar-delete',
+    return this.http.post<any>(this.url_producao + '/avatar-delete',
     {
       avatar: avatar.avatar,
       id: avatar.id

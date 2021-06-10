@@ -7,10 +7,12 @@ import Loja from 'src/app/models/loja';
 })
 export class LojaService {
 
+  url_producao: string = 'https://catalogueme.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   getLoja(shopId): any {
-    return this.http.get<any>('http://localhost:3333/shopbyid', {
+    return this.http.get<any>(this.url_producao + '/shopbyid', {
       params: {
         shop_id: shopId,
       }})
@@ -20,7 +22,7 @@ export class LojaService {
   }
 
   getLojaByTag(tag): any {
-    return this.http.get<any>('http://localhost:3333/shopbytag', {
+    return this.http.get<any>(this.url_producao + '/shopbytag', {
       params: {
         shop_tag: tag,
       }})
@@ -30,7 +32,7 @@ export class LojaService {
   }
 
   getCategories(shopId): any {
-    return this.http.get<any>('http://localhost:3333/categories', {
+    return this.http.get<any>(this.url_producao + '/categories', {
       params: {
         shop_id: shopId,
       }})
@@ -40,7 +42,7 @@ export class LojaService {
   }
 
   addCategory(category, shopId): any {
-    return this.http.post<any>('http://localhost:3333/shops-categories', {
+    return this.http.post<any>(this.url_producao + '/shops-categories', {
       category: category,
       shop_id: shopId
     })
