@@ -7,7 +7,7 @@ import Loja from 'src/app/models/loja';
 })
 export class LojaService {
 
-  url_producao: string = 'https://catalogueme.herokuapp.com'
+  url_producao: string = 'https://catalogueme-backend.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 

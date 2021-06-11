@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ProdutoService {
   public itemCreated: BehaviorSubject<string> = new BehaviorSubject(null);
 
-  url_producao: string = 'https://catalogueme.herokuapp.com'
+  url_producao: string = 'https://catalogueme-backend.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 
