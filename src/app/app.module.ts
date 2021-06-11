@@ -62,6 +62,8 @@ import { CadastroComponent } from './components/home/cadastro/cadastro.component
 
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { EditarProdutoComponent } from './components/dashboard/editar-produto/editar-produto.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -112,7 +114,13 @@ import { EditarProdutoComponent } from './components/dashboard/editar-produto/ed
     FormsModule,
     ReactiveFormsModule,
     BadgeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     ProdutoService,
