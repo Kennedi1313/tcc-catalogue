@@ -56,6 +56,7 @@ export class EditarProdutoComponent implements OnInit {
 
   buscarImages(itemId: any): void {
     console.log(itemId);
+    this.images = [];
     this.produtoService.getItemAvatarById(itemId).then((result) => {
       console.log(result)
       this.images = result ? result.filter(res => res.avatar !== '') : [];
