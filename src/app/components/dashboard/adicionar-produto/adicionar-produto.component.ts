@@ -146,9 +146,9 @@ export class AdicionarProdutoComponent implements OnInit {
   }
 
   clear(): void {
-    this.name = ' ';
-    this.category = null;
-    this.price = 0;
+    this.name = '';
+    this.category = {name: '', code: ''};
+    this.price = null;
     this.imgResultAfterCompress = null;
     this.info = ' ';
   }
