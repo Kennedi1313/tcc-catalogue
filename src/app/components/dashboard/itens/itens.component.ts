@@ -48,6 +48,8 @@ export class ItensComponent implements OnInit {
           if (avatar.length > 0) {
             console.log(avatar)
             prod.avatar = avatar[0].avatar;
+          } else {
+            prod.avatar = '';
           }
         });
       });
@@ -106,5 +108,6 @@ export class ItensComponent implements OnInit {
   changeAtivoItem(item: any): void {
     item.ativo = !item.ativo;
     this.productService.changeAtivo(item).then(res => console.log(res), err => console.error(err));
+    item.ativo = !item.ativo;
   }
 }

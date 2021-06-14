@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  url_producao: string = 'https://catalogueme-backend.herokuapp.com'
+  url_producao: string = 'https://catalogueme-backend.herokuapp.com';
+  //url_producao = 'http://localhost:3333';
 
   constructor(private http: HttpClient) { }
 

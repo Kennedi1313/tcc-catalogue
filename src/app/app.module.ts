@@ -48,6 +48,7 @@ import {ConfirmationService} from 'primeng/api';
 import {MessageService} from 'primeng/api';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/catalogo/header/header.component';
@@ -96,6 +97,7 @@ import { environment } from '../environments/environment';
     ToolbarModule,
     FieldsetModule,
     GalleriaModule,
+    InputMaskModule,
     InputTextareaModule,
     ConfirmDialogModule,
     ToastModule,

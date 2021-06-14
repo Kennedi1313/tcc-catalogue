@@ -8,6 +8,7 @@ import Loja from 'src/app/models/loja';
 export class LojaService {
 
   url_producao: string = 'https://catalogueme-backend.herokuapp.com';
+  //url_producao = 'http://localhost:3333';
 
   constructor(private http: HttpClient) { }
 
@@ -46,6 +47,34 @@ export class LojaService {
       category: category,
       shop_id: shopId
     })
+    .toPromise()
+    .then(res => res);
+  }
+
+  createLoja(name: string, wpp: string, login: string, passwd: string): any {
+    return this.http.post<any>(this.url_producao + '/shops',
+      {
+        user_name: 'adm',
+        user_whatsapp: '84998594171',
+        user_email: login,
+        user_passwd: passwd,
+        shop_name: name,
+        shop_whatsapp: wpp,
+        shop_bio: ''
+      }
+    )
+    .toPromise()
+    .then(res => res);
+  }
+
+  editLoja(id, name, whatsapp): any {
+    return this.http.post<any>(this.url_producao + '/shops-edit',
+      {
+        shop_id: id,
+        shop_name: name,
+        shop_whatsapp: whatsapp
+      }
+    )
     .toPromise()
     .then(res => res);
   }

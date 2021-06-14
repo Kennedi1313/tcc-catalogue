@@ -12,33 +12,37 @@
     <button pButton pRipple class="p-button-primary" routerLink="/cadastro" label="Cadastre-se"></button>
   </div>
 </p-toolbar>
-<div class="form p-card">
-  <h3>Cadastrar sua loja</h3>
 
-  <span class="p-float-label">
-    <input id="float-input" type="text" pInputText (keyup)="formatar()" [(ngModel)]="login"/>
-    <label for="float-input">Nome da loja</label>
-  </span>
-  <span class="span" *ngIf="login !== ''">Seu usuário: {{loginstr}} </span>
-  <span class="span" *ngIf="login !== ''">**Você poderá entrar na sua loja com esse usuário</span>
-  <div class="p-float-label">
-    <textarea inputId="textarea" [(ngModel)]="loja && loja.bio" rows="3" style="resize: none;" cols="30" pInputTextarea></textarea>
-    <label for="textarea">Bio</label>
+<form #form="ngForm" (ngSubmit)="form.form.valid && create()" novalidate >
+  <div class="form p-card">
+    <h3>Cadastrar sua loja</h3>
+
+    <span class="p-float-label">
+      <input id="float-input" type="text" pInputText (keyup)="formatar()" [(ngModel)]="name" name="name" required/>
+      <label for="float-input">Nome da loja</label>
+    </span>
+
+    <span class="p-float-label">
+      <p-inputMask id="float-input" mask="(99) 99999-9999" [(ngModel)]="wpp" name="wpp" [required]="true"></p-inputMask>
+      <label for="float-input">Whatsapp</label>
+    </span>
+
+    <span class="p-float-label">
+      <input id="float-input" type="text" pInputText (keyup)="formatar()" [(ngModel)]="login" name="login" required/>
+      <label for="float-input">Usuário</label>
+    </span>
+
+    <span class="p-float-label">
+      <p-password [(ngModel)]="pass" [toggleMask]="true" weakLabel="Fraca" mediumLabel="Mediana" strongLabel="Forte" name="pass" promptLabel="Digite uma senha" required></p-password>
+      <label for="float-input">Senha</label>
+    </span>
+
+    <span class="p-float-label">
+      <p-password [(ngModel)]="passConfirm" name="passConfirm" [feedback]="false" required (keyup)="checkpass()"></p-password>
+      <label for="float-input">Confirmar senha</label>
+    </span>
+    <button pButton pRipple label="Criar loja" [disabled]="!form.form.valid || this.confirmpass" class="p-button-success"></button>
   </div>
+</form>
 
-  <span class="p-float-label">
-    <input id="float-input" type="number" pInputText [(ngModel)]="wpp"/>
-    <label for="float-input">Whatsapp</label>
-  </span>
-
-  <span class="p-float-label">
-    <p-password [(ngModel)]="pass" [toggleMask]="true" weakLabel="Fraca" mediumLabel="Mediana" strongLabel="Forte" promptLabel="Digite uma senha"></p-password>
-    <label for="float-input">Senha</label>
-  </span>
-
-  <span class="p-float-label">
-    <p-password [(ngModel)]="pass" [feedback]="false"></p-password>
-    <label for="float-input">Confirmar senha</label>
-  </span>
-  <button pButton pRipple label="Entrar" class="p-button-success"></button>
-</div>
+<p-toast key="main" position="bottom-right"></p-toast>

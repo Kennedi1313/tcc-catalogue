@@ -29,7 +29,9 @@ export class LojaComponent implements OnInit {
   }
 
   salvar(): void {
-    this.addSingle('Loja Atualizada', 'Informações da loja salvas com sucesso.', 'main')
+    this.lojaService.editLoja(this.user.shop_id, this.loja.name, this.loja.whatsapp).then( () =>
+      this.addSingle('Loja Atualizada', 'Informações da loja salvas com sucesso.', 'main')
+    )
   }
 
   addSingle(symmary, message, key): void {
