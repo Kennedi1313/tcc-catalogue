@@ -1,7 +1,7 @@
 :host ::ng-deep .p-toolbar {
   position: fixed;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
   box-shadow: 0 0 4px 1px lightgray;
   border-radius: 0;
 }
