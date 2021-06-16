@@ -17,18 +17,16 @@
       </ng-template>
   </p-galleria>
   <div class="content">
-    <p-card [header]="product.name" >
+    <p-card [header]="product && product.name" >
         {{ product.info && product.info }}
       <ng-template pTemplate="footer">
         <div class="price">{{ product.price | currency:'BRL':true:'1.2-2'}}</div>
         <div *ngIf="product.category" class="product-category"><i class="pi pi-tag product-category-icon"></i>{{product.category}}</div>
-        <button pButton pRipple label="Fazer pedido" class="p-button-success" [disabled]="!product.ativo">
+        <a pButton pRipple label="Fazer pedido" class="p-button-success" target="_blank"
+          [href]="['https://wa.me/55' + (this.loja && this.loja.whatsapp) + '/?text=' + text]"
+          style="text-decoration: none;">
           <img src="../../../../assets/whats.png" style="width: 2rem;" alt="whatsapp">
-        </button>
-        <!-- <div class="actions">
-          <button pButton pRipple icon="pi pi-heart" label="Favoritar" class="p-button-secondary" [disabled]="!product.ativo"></button>
-          <button pButton pRipple icon="pi pi-shopping-cart" label="Carrinho" class="p-button-primary" [disabled]="!product.ativo"></button>
-        </div> -->
+        </a>
       </ng-template>
     </p-card>
   </div>

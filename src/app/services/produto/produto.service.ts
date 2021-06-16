@@ -10,8 +10,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ProdutoService {
   public itemCreated: BehaviorSubject<string> = new BehaviorSubject(null);
 
-  url_producao: string = 'https://catalogueme-backend.herokuapp.com';
-  //url_producao = 'http://localhost:3333';
+  //url_producao: string = 'https://catalogueme-backend.herokuapp.com';
+  url_producao = 'http://localhost:3333';
 
   constructor(private http: HttpClient) { }
 
