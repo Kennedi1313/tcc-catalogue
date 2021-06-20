@@ -1,15 +1,15 @@
 <p-confirmDialog [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
 <div class="content">
   <p-dataView #dv [value]="products" [paginator]="true" [rows]="8" [pageLinks]="3" filterBy="name,category"
-      [sortField]="sortField" [sortOrder]="sortOrder" layout="list">
+      [sortField]="sortField" [sortOrder]="sortOrder" [loading]="loading" layout="list" emptyMessage="Que pena, você ainda não tem produtos na sua loja.">
       <ng-template pTemplate="header">
           <div class="header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
               <p-dropdown [options]="sortOptions" placeholder="Ordenar por preço" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
-              <p-dropdown [options]="categories" placeholder="Categorias" [showClear]="true" (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0 "></p-dropdown>
               <span class="p-input-icon-left p-mb-2 p-mb-md-0">
-                  <i class="pi pi-search"></i>
-                  <input type="search" pInputText placeholder="Buscar pelo nome" (input)="search($event)">
+                <i class="pi pi-search"></i>
+                <input type="search" pInputText placeholder="Buscar pelo nome" (input)="search($event)">
               </span>
+              <p-dropdown [options]="categories" placeholder="Categorias" [showClear]="true" (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0 "></p-dropdown>
           </div>
       </ng-template>
       <ng-template let-product pTemplate="listItem">

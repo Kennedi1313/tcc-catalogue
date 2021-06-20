@@ -13,6 +13,7 @@ export class LojaComponent implements OnInit {
   loja: Loja;
   uploadedFiles: any;
   user: any;
+  displayModal: boolean;
 
   constructor(private lojaService: LojaService, private messageService: MessageService) {
 
@@ -30,7 +31,8 @@ export class LojaComponent implements OnInit {
 
   salvar(): void {
     this.lojaService.editLoja(this.user.shop_id, this.loja.name, this.loja.whatsapp).then( () =>
-      this.addSingle('Loja Atualizada', 'Informações da loja salvas com sucesso.', 'main')
+      this.addSingle('Loja Atualizada', 'Informações da loja salvas com sucesso.', 'main'),
+      this.displayModal = false
     )
   }
 

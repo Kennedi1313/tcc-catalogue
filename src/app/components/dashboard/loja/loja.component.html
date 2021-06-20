@@ -1,11 +1,14 @@
-<div class="form">
-  <div class="p-float-label">
-    <input id="float-input" [(ngModel)]="loja && loja.name" type="text" pInputText>
-    <label for="float-input">Nome</label>
+<p-dialog header="Editar Perfil" [(visible)]="displayModal" [modal]="true" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+  <div class="form">
+    <div class="p-float-label">
+      <input id="float-input" [(ngModel)]="loja && loja.name" type="text" pInputText>
+      <label for="float-input">Nome</label>
+    </div>
+    <div class="p-float-label">
+      <p-inputMask id="float-input" mask="(99) 99999-9999" [(ngModel)]="loja && loja.whatsapp" name="wpp" [required]="true"></p-inputMask>
+      <label for="float-input">Whatsapp</label>
+    </div>
+    <button pButton pRipple label="Salvar" (click)="salvar()" class="p-button-success" style="width: 100%;"></button>
   </div>
-  <div class="p-float-label">
-    <p-inputMask id="float-input" mask="(99) 99999-9999" [(ngModel)]="loja && loja.whatsapp" name="wpp" [required]="true"></p-inputMask>
-    <label for="float-input">Whatsapp</label>
-  </div>
-  <button pButton pRipple label="Salvar" (click)="salvar()" class="p-button-success" style="width: 100%;"></button>
-</div>
+</p-dialog>

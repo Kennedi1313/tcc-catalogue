@@ -13,7 +13,6 @@ import {MessageService} from 'primeng/api';
 export class DashboardComponent implements OnInit {
 
   items: MenuItem[];
-  showModal: boolean = false;
   activeItem: MenuItem;
   tag: string;
   user: any;
@@ -27,10 +26,6 @@ export class DashboardComponent implements OnInit {
     }
     this.user = JSON.parse(localStorage['user']);
     this.lojaService.getLoja(this.user.shop_id).then( res => this.tag = res.tag);
-  }
-
-  showDialog(): void {
-    this.showModal = true;
   }
 
   deslogar(): void {

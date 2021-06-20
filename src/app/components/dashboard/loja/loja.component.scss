@@ -3,8 +3,11 @@
   flex-direction: column;
   row-gap: 1rem;
   align-items: center;
-  width: 40%;
   margin: 0 auto;
+}
+
+.p-float-label {
+  margin-top: 1rem;
 }
 
 :host ::ng-deep {
@@ -13,9 +16,20 @@
   }
 }
 
+:host ::ng-deep
+.p-dialog {
+  width: 50%;
+}
+
 @media screen and (max-width: 800px) {
   .form {
     width: 100%;
   }
 }
 
+@media screen and (max-width: 876px) {
+  :host ::ng-deep
+  .p-dialog {
+    width: 90%;
+  }
+}

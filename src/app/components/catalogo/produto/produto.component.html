@@ -17,7 +17,7 @@
       </ng-template>
   </p-galleria>
   <div class="content">
-    <p-card [header]="product && product.name" >
+    <p-card [header]="product && product.name" class="card-content">
         {{ product.info && product.info }}
       <ng-template pTemplate="footer">
         <div class="price">{{ product.price | currency:'BRL':true:'1.2-2'}}</div>

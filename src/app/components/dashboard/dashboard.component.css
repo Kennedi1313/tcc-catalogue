@@ -1,6 +1,37 @@
 :host ::ng-deep
-.p-tabview .p-tabview-nav li {
-  width: 50%;
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+:host ::ng-deep
+.p-toolbar .p-tabview .p-tabview-nav li {
+  width: 100%;
+}
+
+:host ::ng-deep
+.p-tabview-ink-bar {
+  width: 100% !important;
+}
+
+:host ::ng-deep
+.p-tabview-panels {
+  background-color: unset;
+  padding-bottom: 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+:host ::ng-deep
+.p-dataview {
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+:host ::ng-deep
+.p-dataview .p-dataview-header {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .action {
@@ -11,12 +42,11 @@
   justify-content: space-around;
   column-gap: 2rem;
   height: 8rem;
-  padding: 1rem;
 }
 
-.action .add-button{
-  width: 20rem;
+.add-button{
   height: 2.7rem;
+  margin-bottom: 1.5rem;
 }
 
 :host ::ng-deep
@@ -43,6 +73,11 @@
   :host ::ng-deep
   .p-toast {
     width: 90%;
+  }
+
+  :host ::ng-deep
+  .p-tabview-panels {
+    width: 100%;
   }
 }
 

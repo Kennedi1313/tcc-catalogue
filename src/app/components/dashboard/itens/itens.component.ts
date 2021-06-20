@@ -19,6 +19,7 @@ export class ItensComponent implements OnInit {
   sortOrder: number;
   sortField: string;
   @ViewChild('dv') dv: any;
+  loading = false;
 
   constructor(private productService: ProdutoService, private lojaService: LojaService,
               private messageService: MessageService, private confirmationService: ConfirmationService) { }
@@ -35,6 +36,7 @@ export class ItensComponent implements OnInit {
   }
 
   getProducts(): void {
+    this.loading = true;
     this.user = JSON.parse(localStorage['user']);
     this.lojaService.getCategories(this.user.shop_id).then(data => this.categories =  data.filter(res => res !== ''));
     this.productService.getProducts(this.user.shop_id)
@@ -43,16 +45,17 @@ export class ItensComponent implements OnInit {
       this.products.map((res: Produto) => res.price = Number.parseFloat(res.price.toString()));
     }).then(res => {
       this.products.map( (prod: Produto) => {
-        this.productService.getItemAvatarById(prod.id).then( ava => {
+        this.productService.getItemAvatarById(prod.id)
+        .then( ava => {
           const avatar = ava.filter(foto => foto !== '' && foto.avatar !== '');
           if (avatar.length > 0) {
-            console.log(avatar)
             prod.avatar = avatar[0].avatar;
           } else {
             prod.avatar = '';
           }
         });
       });
+      this.loading = false;
     });
   }
 

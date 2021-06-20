@@ -21,12 +21,14 @@ export class ProdutosComponent implements OnInit {
   sortOrder: number;
   sortField: string;
   @ViewChild('dv') dv: any;
+  loading = false;
 
   constructor(private productService: ProdutoService, private lojaService: LojaService, private activeRoute: ActivatedRoute) {
     this.activeRoute.params.subscribe(params => this.tag = params['loja']);
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.lojaService.getLojaByTag(this.tag).then(data => this.loja = data).then(
       () => {
         console.log(this.loja);
@@ -40,9 +42,9 @@ export class ProdutosComponent implements OnInit {
             this.productService.getItemAvatarById(prod.id).then( ava => {
               const avatar = ava.filter(foto => foto !== '' && foto.avatar !== '');
               if (avatar.length > 0) {
-                console.log(avatar)
                 prod.avatar = avatar[0].avatar;
               }
+              this.loading = false;
             });
           });
         });
