@@ -4,7 +4,7 @@
 
 :host ::ng-deep
 .p-dialog {
-  width: 50%;
+  width: 500px;
 }
 
 :host ::ng-deep
@@ -49,7 +49,7 @@ p-galleriathumbnails {
 .p-galleria-thumbnail-item-content {
   width: 8rem;
 }
-@media screen and (max-width: 876px) {
+@media screen and (max-width: 800px) {
   :host ::ng-deep
   .p-dialog {
     width: 90%;

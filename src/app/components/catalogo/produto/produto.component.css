@@ -79,7 +79,7 @@
   column-gap: 1rem;
 }
 
-@media screen and (max-width: 876px) {
+@media screen and (max-width: 800px) {
   :host ::ng-deep
   .card-product .p-card-content {
     flex-direction: column;

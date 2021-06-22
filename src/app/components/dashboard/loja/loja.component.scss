@@ -18,7 +18,7 @@
 
 :host ::ng-deep
 .p-dialog {
-  width: 50%;
+  width: 500px;
 }
 
 @media screen and (max-width: 800px) {
@@ -27,7 +27,7 @@
   }
 }
 
-@media screen and (max-width: 876px) {
+@media screen and (max-width: 800px) {
   :host ::ng-deep
   .p-dialog {
     width: 90%;
