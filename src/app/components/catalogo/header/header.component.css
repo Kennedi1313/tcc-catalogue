@@ -19,3 +19,10 @@
   width: 10rem;
   border-radius: 50%;
 }
+
+@media screen and (min-width: 800px) {
+  .loja-header p {
+    width: 80%;
+  }
+}
+
