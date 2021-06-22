@@ -7,6 +7,14 @@
   column-gap: 2rem;
   height: 100%;
 }
+
+:host ::ng-deep
+.loja-header {
+  border: unset;
+  border-width: unset;
+  border-bottom: 2px solid #3f51b5;
+}
+
 :host ::ng-deep
 .card-product .p-component .p-card-body {
   background-color: var(--indigo-50);
