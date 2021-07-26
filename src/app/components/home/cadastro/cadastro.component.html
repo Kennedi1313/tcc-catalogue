@@ -18,18 +18,13 @@
     <h3>Cadastrar sua loja</h3>
 
     <span class="p-float-label">
-      <input id="float-input" type="text" pInputText (keyup)="formatar()" [(ngModel)]="name" name="name" required/>
+      <input id="float-input" type="text" pInputText [(ngModel)]="name" name="name" required/>
       <label for="float-input">Nome da loja</label>
     </span>
 
     <span class="p-float-label">
       <p-inputMask id="float-input" mask="(99) 99999-9999" [(ngModel)]="wpp" name="wpp" [required]="true"></p-inputMask>
       <label for="float-input">Whatsapp</label>
-    </span>
-
-    <span class="p-float-label">
-      <input id="float-input" type="text" pInputText (keyup)="formatar()" [(ngModel)]="login" name="login" required/>
-      <label for="float-input">Usuário</label>
     </span>
 
     <span class="p-float-label">

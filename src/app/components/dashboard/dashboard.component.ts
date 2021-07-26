@@ -15,8 +15,7 @@ export class DashboardComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   tag: string;
-  user: any;
-
+  shop: any;
   constructor(private router: Router, private messageService: MessageService,
               private lojaService: LojaService) { }
 
@@ -24,13 +23,13 @@ export class DashboardComponent implements OnInit {
     if (!localStorage['token']) {
       this.router.navigate(['/login']);
     }
-    this.user = JSON.parse(localStorage['user']);
-    this.lojaService.getLoja(this.user.shop_id).then( res => this.tag = res.tag);
+    this.shop = JSON.parse(localStorage['shop']);
+    this.tag = this.shop.name.replace(' ', '');
   }
 
   deslogar(): void {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('shop');
     this.router.navigate(['/']);
   }
 

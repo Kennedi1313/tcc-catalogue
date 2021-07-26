@@ -7,17 +7,10 @@
       <label for="float-input">Nome (obrigatório)</label>
     </div>
 
-    <div class="p-float-label p-inputgroup" style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
-      <p-autoComplete [(ngModel)]="category" name="category" class="form-control"
-      emptyMessage="Uma nova categoria será adicionada." [showEmptyMessage]="true" [suggestions]="shopCategoriesFiltered" (completeMethod)="filterCountry($event)" field="name" [dropdown]="true" [minLength]="1"></p-autoComplete>
-      <label for="float-input">Categoria</label>
-      <!-- <button pButton pRipple *ngIf="newCategoryFlag"  class="p-button-success" icon="pi pi-plus" style="width: 2.9rem;"></button> -->
-    </div>
-
     <div class="p-float-label">
       <textarea inputId="textarea" class="form-control"
         [(ngModel)]="info" rows="3" name="info" maxlength="500" style="resize: none;" cols="30" pInputTextarea></textarea>
-      <label for="textarea">Descrição</label>
+      <label for="textarea">Descrição (opcional)</label>
     </div>
 
     <div class="p-float-label">

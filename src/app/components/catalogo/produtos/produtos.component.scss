@@ -1,16 +1,15 @@
 .product-grid-footer {
-  height: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
 }
 
 .product-grid-footer button {
-  width: 40%;
+  width: 100%;
+  padding: 1rem;
+
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 
 :host ::ng-deep {
@@ -30,6 +29,7 @@
   .p-dataview-content {
     max-width: 800px;
     margin: 1rem auto;
+    padding: 0;
     background-color: var(--indigo-50);
   }
 
@@ -69,10 +69,10 @@
   }
 
   .product-grid-item {
-      margin: .5rem;
+      margin: .25rem;
       //border: 1px solid #dee2e6;
       padding: 0 !important;
-      height: 19.5rem;
+      height: 21rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -102,7 +102,7 @@
           flex-direction: column;
           justify-content: space-between;
           padding: 0rem 1rem 0rem 1rem ;
-          min-height: 6rem;
+          min-height: 5rem;
       }
 
       .product-price {
@@ -142,7 +142,6 @@
 
 .card {
   padding: 2rem;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   margin-bottom: 2rem;
 }

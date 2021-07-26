@@ -47,6 +47,10 @@
       align-self: flex-end;
   }
 
+  .confirm .p-dialog-content {
+    border: 0;
+  }
+
   .product-list-item {
       display: flex;
       align-items: center;
@@ -56,7 +60,8 @@
       width: 100%;
 
       img {
-          width: 150px;
+          min-width: 150px;
+          max-width: 150px;
           margin-right: 1rem;
       }
 

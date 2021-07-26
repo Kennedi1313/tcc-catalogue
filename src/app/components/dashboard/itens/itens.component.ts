@@ -12,7 +12,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ItensComponent implements OnInit {
 
-  user: any;
+  shop: any;
   products: Produto[];
   categories: string[];
   sortOptions: SelectItem[];
@@ -37,24 +37,11 @@ export class ItensComponent implements OnInit {
 
   getProducts(): void {
     this.loading = true;
-    this.user = JSON.parse(localStorage['user']);
-    this.lojaService.getCategories(this.user.shop_id).then(data => this.categories =  data.filter(res => res !== ''));
-    this.productService.getProducts(this.user.shop_id)
+    this.shop = JSON.parse(localStorage['shop']);
+    this.productService.getProducts(this.shop.id)
     .then(data => this.products = data)
     .then(() => {
       this.products.map((res: Produto) => res.price = Number.parseFloat(res.price.toString()));
-    }).then(res => {
-      this.products.map( (prod: Produto) => {
-        this.productService.getItemAvatarById(prod.id)
-        .then( ava => {
-          const avatar = ava.filter(foto => foto !== '' && foto.avatar !== '');
-          if (avatar.length > 0) {
-            prod.avatar = avatar[0].avatar;
-          } else {
-            prod.avatar = '';
-          }
-        });
-      });
       this.loading = false;
     });
   }
@@ -75,14 +62,9 @@ export class ItensComponent implements OnInit {
     this.dv.filter((event.target as HTMLInputElement).value, 'contains');
   }
 
-  onCategoryChange(event: any): void {
-    this.dv.filter(event.value, 'equals');
-  }
-
   delete(itemId): void {
 
     let avatar = null;
-    console.log('entrou aqui')
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir esse produto?',
       header: 'Confirmação',
@@ -90,13 +72,9 @@ export class ItensComponent implements OnInit {
       acceptLabel: 'Sim',
       rejectLabel: 'Não',
       accept: () => {
-          this.productService.getItemAvatarById(itemId).then((result) => {
+          this.productService.deleteProduto(itemId).then((result) => {
             console.log(result);
-            avatar = result;
-          }).then( () =>
-            this.productService.deleteProduto(itemId, avatar).then((result) => {
-            console.log(result);
-          })).then( () => {
+          }).then( () => {
             this.getProducts();
             this.messageService.add({severity: 'info', summary: 'Excluido', detail: 'Item excluido com sucesso.', key: 'main'})
           }

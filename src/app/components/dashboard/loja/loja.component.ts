@@ -11,8 +11,7 @@ import Loja from 'src/app/models/loja';
 export class LojaComponent implements OnInit {
 
   loja: Loja;
-  uploadedFiles: any;
-  user: any;
+  shop: any;
   displayModal: boolean;
 
   constructor(private lojaService: LojaService, private messageService: MessageService) {
@@ -20,17 +19,12 @@ export class LojaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage['user']);
-    console.log(this.user.shop_id)
-    this.lojaService.getLoja(this.user.shop_id).then(loja => this.loja = loja);
-  }
-
-  onBasicUploadAuto(event): void {
-
+    this.shop = JSON.parse(localStorage['shop']);
+    this.lojaService.getLoja(this.shop.id).then(loja => this.loja = loja);
   }
 
   salvar(): void {
-    this.lojaService.editLoja(this.user.shop_id, this.loja.name, this.loja.whatsapp).then( () =>
+    this.lojaService.editLoja(this.shop.id, this.loja.name, this.loja.whatsapp).then( () =>
       this.addSingle('Loja Atualizada', 'Informações da loja salvas com sucesso.', 'main'),
       this.displayModal = false
     )

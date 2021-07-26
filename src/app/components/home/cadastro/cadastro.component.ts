@@ -14,10 +14,8 @@ export class CadastroComponent implements OnInit {
 
 
   loja: Loja;
-  login: string = '';
   pass: string;
   passConfirm: string;
-  loginstr: string;
   wpp: string;
   name: string;
   confirmpass = true;
@@ -33,13 +31,9 @@ export class CadastroComponent implements OnInit {
     console.log(this.confirmpass)
   }
 
-  formatar() {
-    this.loginstr = this.login.trim().toLowerCase().replace(/\s/g, '');
-  }
-
   create() {
     this.lojaService.createLoja(
-      this.name, this.wpp, this.login, this.pass
+      this.name, this.wpp.replace('(', '').replace(')', '').replace('-', '').replace(' ', ''), this.pass
     ).then(
     () =>
       this.router.navigate(['/dashboard', '']),

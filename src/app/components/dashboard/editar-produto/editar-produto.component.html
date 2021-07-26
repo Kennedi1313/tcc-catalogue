@@ -7,13 +7,6 @@
       <label for="float-input">Nome (obrigatório)</label>
     </div>
 
-    <div class="p-float-label p-inputgroup" style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
-      <p-autoComplete [(ngModel)]="category" name="category" class="form-control"
-      emptyMessage="Uma nova categoria será adicionada." [showEmptyMessage]="true" [suggestions]="shopCategoriesFiltered" (completeMethod)="filterCountry($event)" field="name" [dropdown]="true" [minLength]="1"></p-autoComplete>
-      <label for="float-input">Categoria</label>
-      <!-- <button pButton pRipple *ngIf="newCategoryFlag"  class="p-button-success" icon="pi pi-plus" style="width: 2.9rem;"></button> -->
-    </div>
-
     <div class="p-float-label">
       <textarea inputId="textarea" class="form-control"
         [(ngModel)]="info" rows="3" name="info" maxlength="500" style="resize: none;" cols="30" pInputTextarea></textarea>
@@ -27,25 +20,10 @@
     </div>
 
     <div style="margin-top: 1rem;" class="p-label">
-      <button pButton pRipple type="button" label="Adicionar Imagem" (click)="compressFile()"></button> <br/>
-      <p-toast key="image" position="bottom-right"></p-toast>
+      <button *ngIf="!avatar" pButton pRipple type="button" label="Adicionar Imagem" (click)="compressFile()"></button> <br/>
+      <button *ngIf="avatar" pButton pRipple type="button" label="Trocar Imagem" (click)="compressFile()"></button> <br/>
+      <img *ngIf="avatar" [src]="avatar" style="width: 18rem; padding: 1rem;" alt="">
     </div>
-
-    <h4 *ngIf="images && images.length > 0">Imagens do item</h4>
-
-    <p-galleria *ngIf="images && images.length > 0" class="galery"
-      [value]="images" [numVisible]="5"
-      [circular]="true" [showItemNavigators]="true"
-      [showThumbnails]="false" [showIndicators]="true"
-      [showItemNavigatorsOnHover]="false"
-      [showIndicatorsOnItem]="true">
-      <ng-template pTemplate="item" let-item>
-        <button pButton pRipple (click)="delete(item)" type="button" icon="pi pi-times"
-            class=" p-button-danger p-button-sm close"
-            style="width: 2rem; height: 2rem; position: absolute; top: 0; right: 0;"></button>
-          <img [src]="item.avatar" style="width: 100%; display: block;" />
-      </ng-template>
-    </p-galleria>
 
     <button pButton pRipple [disabled]="!form.form.valid" label="Salvar" type="submit"  class="p-button-success" style="width: 100%; margin-top: 1rem;"></button>
   </form>

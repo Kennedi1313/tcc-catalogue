@@ -1,33 +1,14 @@
-<app-header></app-header>
-<p-card *ngIf="product" class="card-product">
-  <p-galleria  class="galery"
-      [value]="images" [numVisible]="5"
-      [circular]="true" [showItemNavigators]="true"
-      [showThumbnails]="false" [showIndicators]="true"
-      [showItemNavigatorsOnHover]="false"
-      [showIndicatorsOnItem]="true">
-      <ng-template pTemplate="item" let-item>
-        <div class="product-badge">
-          <p-badge
-            [severity]="product.ativo ? 'info' : 'danger'"
-            [value]="product.ativo ? 'EM ESTOQUE' : 'ESGOTADO'">
-          </p-badge>
+<p-dialog header="Detalhes do Produto" [(visible)]="displayModal" [modal]="true" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <img [src]="product ? product.avatar : '../../../assets/default.png' " style="margin: 0 auto; width: 50%; display: block;" />
+    <div class="content">
+      <div class="p-card" >
+        <div style="padding: 1rem;">
+          <h3>{{ product && product.name }}</h3>
+          <p>{{ product && product.info && product.info }}</p>
+          <div class="price">{{ product && product.price | currency:'BRL':true:'1.2-2'}}</div>
         </div>
-          <img [src]="item.avatar ? item.avatar : '../../../assets/default.png' " style="width: 100%; display: block;" />
-      </ng-template>
-  </p-galleria>
-  <div class="content">
-    <p-card [header]="product && product.name" class="card-content">
-        {{ product.info && product.info }}
-      <ng-template pTemplate="footer">
-        <div class="price">{{ product.price | currency:'BRL':true:'1.2-2'}}</div>
-        <div *ngIf="product.category" class="product-category"><i class="pi pi-tag product-category-icon"></i>{{product.category}}</div>
-        <a pButton pRipple label="Fazer pedido" class="p-button-success" target="_blank"
-          [href]="['https://wa.me/55' + (this.loja && this.loja.whatsapp) + '/?text=' + text]"
-          style="text-decoration: none;">
-          <img src="../../../../assets/whats.png" style="width: 2rem;" alt="whatsapp">
-        </a>
-      </ng-template>
-    </p-card>
-  </div>
-</p-card>
+      </div>
+
+    </div>
+</p-dialog>

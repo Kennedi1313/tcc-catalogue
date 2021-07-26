@@ -31,23 +31,12 @@ export class ProdutosComponent implements OnInit {
     this.loading = true;
     this.lojaService.getLojaByTag(this.tag).then(data => this.loja = data).then(
       () => {
-        console.log(this.loja);
-        this.lojaService.getCategories(this.loja.id).then(data => this.categories = data.filter(res => res !== ''));
         this.productService.getProducts(this.loja.id)
         .then(data => this.products = data)
         .then(() => {
           this.products.map((res: Produto) => res.price = Number.parseFloat(res.price.toString()));
-        }).then(res => {
-          this.products.map( (prod: Produto) => {
-            this.productService.getItemAvatarById(prod.id).then( ava => {
-              const avatar = ava.filter(foto => foto !== '' && foto.avatar !== '');
-              if (avatar.length > 0) {
-                prod.avatar = avatar[0].avatar;
-              }
-              this.loading = false;
-            });
-          });
-        });
+          this.loading = false;
+        })
       }
     );
 
@@ -76,6 +65,15 @@ export class ProdutosComponent implements OnInit {
 
   onCategoryChange(event: any): void {
     this.dv.filter(event.value, 'equals');
+  }
+
+  comprar(wpp, name): void {
+    const link = document.createElement('a');
+    link.target = '_blank';
+    link.href = 'https://wa.me/55' + wpp +
+      '/?text=' + window.encodeURIComponent('Olá, gostaria de comprar o seguinte item: ' + name);
+    link.setAttribute('visibility', 'hidden');
+    link.click();
   }
 
 }

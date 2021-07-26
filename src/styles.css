@@ -5,3 +5,15 @@ body{
   font-family: sans-serif;
   background-color: var(--indigo-50);
 }
+
+.p-dialog .p-dialog-footer, .p-dialog .p-dialog-content{
+  border-bottom: 20px solid #2b377b;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+:host ::ng-deep
+  .p-dialog {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}

@@ -11,7 +11,8 @@ export class ProdutoService {
   public itemCreated: BehaviorSubject<string> = new BehaviorSubject(null);
 
   url_producao: string = 'https://catalogueme-backend.herokuapp.com';
-  // url_producao = 'http://localhost:3333';
+  //url_producao = 'http://localhost:3333';
+  //url_producao = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +20,6 @@ export class ProdutoService {
     return this.http.get<any>(this.url_producao + '/items', {
       params: {
         shop_id: shopId,
-        page: '1',
-        limit: '12',
       }})
     .toPromise()
     .then(res => res.items as Produto[])
@@ -35,16 +34,6 @@ export class ProdutoService {
     .toPromise()
     .then(res => res[0] as Produto)
     .then(data => data);
-  }
-
-  getItemAvatarById(itemId: any): any {
-    return this.http.get<any>(this.url_producao + '/itemavatarbyid', {
-      params: {
-        item_id: itemId,
-      }})
-      .toPromise()
-      .then(res => res.itemsAvatar)
-      .then(data => data);
   }
 
   createProduto(formData: FormData): any {
@@ -67,11 +56,10 @@ export class ProdutoService {
     return this.itemCreated.asObservable();
   }
 
-  deleteProduto(itemId, avatar): any {
+  deleteProduto(itemId): any {
     return this.http.post<any>(this.url_producao + '/itemsDelete',
     {
-      item_id: itemId,
-      avatars: avatar
+      item_id: itemId
     })
     .toPromise()
     .then(res => res);
@@ -88,16 +76,6 @@ export class ProdutoService {
 
   addAvatar(formData: FormData): any {
     return this.http.post<any>(this.url_producao + '/avatar', formData)
-    .toPromise()
-    .then(res => res);
-  }
-
-  excluirAvatar(avatar: any): any {
-    return this.http.post<any>(this.url_producao + '/avatar-delete',
-    {
-      avatar: avatar.avatar,
-      id: avatar.id
-    })
     .toPromise()
     .then(res => res);
   }
