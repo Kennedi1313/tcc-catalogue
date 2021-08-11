@@ -1,4 +1,3 @@
-
 import { LojaService } from './services/loja/loja.service';
 import { ProdutoService } from './services/produto/produto.service';
 import { NgModule } from '@angular/core';
@@ -24,28 +23,20 @@ import {PanelModule} from 'primeng/panel';
 import {DropdownModule} from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
-import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
 import {BadgeModule} from 'primeng/badge';
 import {ToolbarModule} from 'primeng/toolbar';
-import {GalleriaModule} from 'primeng/galleria';
 import {CardModule} from 'primeng/card';
-import { ChipModule } from 'primeng/chip';
 import {MenuModule} from 'primeng/menu';
 import {TabViewModule} from 'primeng/tabview';
 import {InputSwitchModule} from 'primeng/inputswitch';
-import {DividerModule} from 'primeng/divider';
 import {FieldsetModule} from 'primeng/fieldset';
 import {InputTextareaModule} from 'primeng/inputtextarea';
-import {MenuItem} from 'primeng/api';
-import {FileUploadModule} from 'primeng/fileupload';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ToastModule} from 'primeng/toast';
 import {PasswordModule} from 'primeng/password';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
-import {ConfirmationService} from 'primeng/api';
-import {MessageService} from 'primeng/api';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {InputMaskModule} from 'primeng/inputmask';
@@ -96,23 +87,18 @@ import { environment } from '../environments/environment';
     RippleModule,
     ToolbarModule,
     FieldsetModule,
-    GalleriaModule,
     InputMaskModule,
     InputTextareaModule,
     ConfirmDialogModule,
     ToastModule,
     PasswordModule,
     CardModule,
-    ChipModule,
     MenuModule,
     AutoCompleteModule,
     InputSwitchModule,
     ConfirmPopupModule,
     TabViewModule,
-    FileUploadModule,
-    DividerModule,
     HttpClientModule,
-    RatingModule,
     FormsModule,
     ReactiveFormsModule,
     BadgeModule,

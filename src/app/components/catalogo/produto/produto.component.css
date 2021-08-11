@@ -89,6 +89,11 @@
     width: 500px;
   }
 
+:host ::ng-deep
+  .p-dialog .p-dialog-content {
+    padding: 0;
+  }
+
 @media screen and (max-width: 800px) {
   :host ::ng-deep
   .card-product .p-card-content {
