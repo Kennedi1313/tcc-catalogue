@@ -1,20 +1,22 @@
 <app-header></app-header>
 <div class="content">
-  <p-dataView #dv [value]="products" [paginator]="true" [rows]="8" [pageLinks]="3" filterBy="name"
-      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid" [loading]="loading">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="8" [pageLinks]="3" filterBy="name" id="dataset"
+      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid" [loading]="loading" ariaFilterLabel="dataset" >
       <ng-template pTemplate="header">
           <div class="header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
-              <p-dropdown [options]="sortOptions" placeholder="Ordenar por preço" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+              <label hidden="true" for="ordem"><span aria-hidden="true">Ordem</span></label>
+              <p-dropdown [options]="sortOptions" placeholder="Ordenar por preço" (onChange)="onSortChange($event)" id="ordem" styleClass="p-mb-2 p-mb-md-0" ariaFilterLabel="ordenar" ariaLabelledBy="ordem"></p-dropdown>
               <span class="p-input-icon-left p-mb-2 p-mb-md-0">
                 <i class="pi pi-search"></i>
-                <input type="search" pInputText placeholder="Buscar pelo nome" (input)="search($event)">
+                <label hidden="true" for="busca"><span aria-hidden="true">Busca</span></label>
+                <input type="search" pInputText placeholder="Buscar pelo nome" (input)="search($event)" id="busca" aria-label="Buscar por nome">
               </span>
           </div>
       </ng-template>
       <ng-template let-product pTemplate="gridItem">
         <div class="p-col-6 p-md-3">
           <div class="product-grid-item p-card">
-            <a (click)="modalProduto.displayModal = true; modalProduto.product = product" style="text-decoration: none; color: black; cursor: pointer;">
+            <a (click)="modalProduto.displayModal = true; modalProduto.product = product" style="text-decoration: none; color: black; cursor: pointer;" aria-label="Detalhes" aria-haspopup="listbox">
               <div class="product-grid-header">
                 <p-badge
                   [severity]="product.ativo ? 'info' : 'danger'"
@@ -28,7 +30,7 @@
               </div>
             </a>
               <div class="product-grid-footer">
-                <button (click)="comprar(loja.whatsapp, product.name)" [disabled]="!product.ativo" pButton pRipple class="p-button-primary" label="Comprar" icon="pi pi-shopping-cart"></button>
+                <button (click)="comprar(loja.whatsapp, product.name)" [disabled]="!product.ativo" pButton pRipple class="p-button-primary" label="Comprar" icon="pi pi-shopping-cart" aria-label="Comprar"></button>
 
               </div>
           </div>
