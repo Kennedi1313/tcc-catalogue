@@ -7,19 +7,23 @@
     <button pButton pRipple class="p-button-primary" [routerLink]="['/cadastro']" label="Cadastre-se"></button>
   </div>
 </p-toolbar>
-<div class="form p-card">
-  <h3>Entrar na sua loja</h3>
+<div class="login">
+  <div class="form ">
+    <h3><h1>Entrar na sua loja</h1></h3>
 
-  <span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="user"/>
-    <label for="float-input">Whatsapp</label>
-  </span>
+    <span class="p-float-label">
+      <input id="float-input" type="text" pInputText [(ngModel)]="user"/>
+      <label for="float-input">Whatsapp</label>
+    </span>
 
-  <span class="p-float-label">
-    <p-password [(ngModel)]="pass" [feedback]="false" [toggleMask]="true" ></p-password>
-    <label for="float-input">Senha</label>
-  </span>
-  <button pButton pRipple label="Entrar" (click)="login()" class="p-button-success"></button>
+    <span class="p-float-label">
+      <p-password [(ngModel)]="pass" [feedback]="false" [toggleMask]="true" ></p-password>
+      <label for="float-input">Senha</label>
+    </span>
+    <button pButton pRipple label="Entrar" (click)="login()" class="p-button-success"></button>
+  </div>
+  <div class="page1-img">
+    <img src="../../assets/woman-5823482.png" alt="capa">
+  </div>
 </div>
-
 <p-toast key="main" position="bottom-right"></p-toast>

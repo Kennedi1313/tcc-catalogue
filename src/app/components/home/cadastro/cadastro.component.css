@@ -1,10 +1,25 @@
+form {
+  height: 100%;
+}
+
 form .form {
-  max-width: 400px;
-  margin: 5% auto;
-  padding: 1rem;
+  width: 35vw;
+  height: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   row-gap: 1rem;
+  background-color: white;
+}
+
+.form button {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: larger;
 }
 
 :host ::ng-deep .p-inputtext, :host ::ng-deep .p-password {
@@ -14,4 +29,43 @@ form .form {
 .span {
   font-size: small;
   color: grey;
+}
+
+.page1-img {
+  display: flex;
+}
+
+.page1-img img {
+  width: 50vw;
+  height: 70vh;
+  object-fit: contain;
+}
+
+.cadastro {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: #62cce6;
+  height: 93vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  .cadastro {
+    flex-direction: column;
+    height: unset;
+  }
+
+  form {
+    width: 96%;
+  }
+
+  form .form {
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+
+    border-radius: 5px;
+  }
 }

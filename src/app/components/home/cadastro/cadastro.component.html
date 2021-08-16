@@ -13,31 +13,35 @@
   </div>
 </p-toolbar>
 
-<form #form="ngForm" (ngSubmit)="form.form.valid && create()" novalidate >
-  <div class="form p-card">
-    <h3>Cadastrar sua loja</h3>
+<div class="cadastro">
+  <form #form="ngForm" (ngSubmit)="form.form.valid && create()" novalidate >
+    <div class="form">
+      <h3><h1>Cadastrar sua loja</h1></h3>
 
-    <span class="p-float-label">
-      <input id="float-input" type="text" pInputText [(ngModel)]="name" name="name" required/>
-      <label for="float-input">Nome da loja</label>
-    </span>
+      <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="name" name="name" required/>
+        <label for="float-input">Nome da loja</label>
+      </span>
 
-    <span class="p-float-label">
-      <p-inputMask id="float-input" mask="(99) 99999-9999" [(ngModel)]="wpp" name="wpp" [required]="true"></p-inputMask>
-      <label for="float-input">Whatsapp</label>
-    </span>
+      <span class="p-float-label">
+        <p-inputMask id="float-input" mask="(99) 99999-9999" [(ngModel)]="wpp" name="wpp" [required]="true"></p-inputMask>
+        <label for="float-input">Whatsapp</label>
+      </span>
 
-    <span class="p-float-label">
-      <p-password [(ngModel)]="pass" [toggleMask]="true" weakLabel="Fraca" mediumLabel="Mediana" strongLabel="Forte" name="pass" promptLabel="Digite uma senha" required></p-password>
-      <label for="float-input">Senha</label>
-    </span>
+      <span class="p-float-label">
+        <p-password [(ngModel)]="pass" [toggleMask]="true" weakLabel="Fraca" mediumLabel="Mediana" strongLabel="Forte" name="pass" promptLabel="Digite uma senha" required></p-password>
+        <label for="float-input">Senha</label>
+      </span>
 
-    <span class="p-float-label">
-      <p-password [(ngModel)]="passConfirm" name="passConfirm" [feedback]="false" required (keyup)="checkpass()"></p-password>
-      <label for="float-input">Confirmar senha</label>
-    </span>
-    <button pButton pRipple label="Criar loja" [disabled]="!form.form.valid || this.confirmpass" class="p-button-success"></button>
+      <span class="p-float-label">
+        <p-password [(ngModel)]="passConfirm" name="passConfirm" [feedback]="false" required (keyup)="checkpass()"></p-password>
+        <label for="float-input">Confirmar senha</label>
+      </span>
+      <button pButton pRipple label="Criar loja" [disabled]="!form.form.valid || this.confirmpass" class="p-button-success"></button>
+    </div>
+  </form>
+  <div class="page1-img">
+    <img src="../../assets/gift-4222336_1920.jpg" alt="capa">
   </div>
-</form>
-
+</div>
 <p-toast key="main" position="bottom-right"></p-toast>

@@ -1,12 +1,59 @@
 .form {
-  max-width: 400px;
-  margin: 5% auto;
-  padding: 1rem;
+  width: 35vw;
+  height: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   row-gap: 1rem;
+  background-color: white;
+}
+
+.form button {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: larger;
+}
+
+.page1-img {
+  display: flex;
+}
+
+.page1-img img {
+  width: 50vw;
+  height: 70vh;
+  object-fit: contain;
+}
+
+.login {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: #00aec7;
+  height: 93vh;
+  align-items: center;
+  justify-content: space-between;
 }
 
 :host ::ng-deep .p-inputtext, :host ::ng-deep .p-password {
   width: 100%;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .login {
+    flex-direction: column;
+    height: unset;
+  }
+
+  .form {
+    width: max-content;
+    height: 70vh;
+    margin-top: 1rem;
+    border-radius: 5px;
+  }
 }
